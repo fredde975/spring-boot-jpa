@@ -5,6 +5,7 @@ import ft.persistance.HotelRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,11 @@ public class HotelController {
 
     @GetMapping("/hotels")
     public List<Hotel> getHotels(){
-        return hotelRepository.findAll();
+        try {
+            return hotelRepository.findAll();
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
     }
 
 }
