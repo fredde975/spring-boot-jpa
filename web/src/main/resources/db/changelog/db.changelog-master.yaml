@@ -1,0 +1,27 @@
+databaseChangeLog:
+    - changeSet:
+        id: 1
+        author: Fredrik Thernelius
+        comment: "Some comments go here"
+        changes:
+            - createTable:
+                tableName: hotel
+                columns:
+                    - column:
+                        name: id
+                        type: int
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: name
+                        type: varchar(255)
+                        constraints:
+                            unique: true
+                            nullable: false
+                    - column:
+                        name: classification
+                        type: int
+                    - column:
+                        name: open
+                        type: bool
