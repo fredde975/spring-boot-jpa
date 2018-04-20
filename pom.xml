@@ -28,6 +28,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <liquibase.version>3.6.1</liquibase.version>
+        <docker.image.prefix>springio</docker.image.prefix>
     </properties>
 
     <dependencyManagement>
@@ -71,5 +72,22 @@
         </dependency>
 
     </dependencies>
+
+<!--    <build>
+        <plugins>
+            <plugin>
+                &lt;!&ndash;mvn install dockerfile:build &ndash;&gt;
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>-->
 
 </project>
